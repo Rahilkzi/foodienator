@@ -3,17 +3,17 @@
         class="form-container mx-auto  shadow-container" style="width:80%" enctype="multipart/form-data">
         <h3 class="mb-3 text-center">Add Food Items</h3>
         <div class="form-group">
-            <label class="control-label">Select Restaurant</label>
+            <label class="control-label">Select Categories</label>
             <select name="rname" id="resname"
                 class="form-control <?php echo (form_error('rname') != "") ? 'is-invalid' : '';?>">
-                <option>--Select Restaurant--</option>
+                <option>--Select Categories--</option>
                 <?php 
-                if (!empty($stores)) { 
-                    foreach($stores as $store) {
+                if (!empty($categories)) { 
+                    foreach($categories as $category) {
                         ?>
-                <option value="<?php echo $store['r_id'];?>">
+                <option value="<?php echo $category['c_id'];?>">
                     <?php echo set_select('resname');?>
-                    <?php echo $store['name'];?>
+                    <?php echo $category['c_name'];?>
                 </option>
                 <?php }
                 }

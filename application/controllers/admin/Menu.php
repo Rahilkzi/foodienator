@@ -24,8 +24,8 @@ class Menu extends CI_Controller {
     public function create_menu(){
 
         $this->load->helper('common_helper');
-        $this->load->model('Store_model');
-        $store = $this->Store_model->getStores();
+        $this->load->model('Cat_model');
+        $category = $this->Cat_model->getCategories();
 
         $config['upload_path']          = './public/uploads/dishesh/';
         $config['allowed_types']        = 'gif|jpg|png|jpeg';
@@ -70,7 +70,7 @@ class Menu extends CI_Controller {
                     //we got some errors
                     $error = $this->upload->display_errors("<p class='invalid-feedback'>","</p>");
                     $data['errorImageUpload'] = $error; 
-                    $data['stores']= $store;
+                    $data['categories']= $category;
                     $this->load->view('admin/partials/header');
                     $this->load->view('admin/menu/add_menu', $data);
                     $this->load->view('admin/partials/footer');
@@ -91,9 +91,9 @@ class Menu extends CI_Controller {
             }
 
         } else {
-            $store_data['stores']= $store;
+            $category_data['categories']= $category;
             $this->load->view('admin/partials/header');
-            $this->load->view('admin/menu/add_menu', $store_data);
+            $this->load->view('admin/menu/add_menu', $category_data);
             $this->load->view('admin/partials/footer');
         }
         
@@ -119,8 +119,8 @@ class Menu extends CI_Controller {
         $this->load->model('Menu_model');
         $dish = $this->Menu_model->getSingleDish($id);
 
-        $this->load->model('Store_model');
-        $store = $this->Store_model->getStores();
+        $this->load->model('Cat_model');
+        $category = $this->Cat_model->getCategories();
         
         if(empty($dish)) {
 
@@ -179,7 +179,7 @@ class Menu extends CI_Controller {
                     $error = $this->upload->display_errors("<p class='invalid-feedback'>","</p>");
                     $data['errorImageUpload'] = $error;
                     $data['dish'] = $dish;
-                    $data['stores'] = $store;
+                    $data['categories'] = $category;
                     $this->load->view('admin/partials/header');
                     $this->load->view('admin/menu/edit', $data);
                     $this->load->view('admin/partials/footer');
@@ -201,7 +201,7 @@ class Menu extends CI_Controller {
 
         } else {
             $data['dish'] = $dish;
-            $data['stores'] = $store;
+            $data['categories'] = $category;
             $this->load->view('admin/partials/header');
             $this->load->view('admin/menu/edit', $data);
             $this->load->view('admin/partials/footer');
