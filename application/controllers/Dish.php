@@ -13,8 +13,8 @@ class Dish extends CI_Controller {
         $this->load->model('Menu_model');
         $dishesh = $this->Menu_model->getDishesh($id);
 
-        $this->load->model('Store_model');
-        $res = $this->Store_model->getStore($id);
+        $this->load->model('Cat_model');
+        $res = $this->Cat_model->getCategory($id);
 
         $data['dishesh'] = $dishesh;
         $data['res'] = $res;
@@ -28,7 +28,7 @@ class Dish extends CI_Controller {
         $dishesh = $this->Menu_model->getSingleDish($id);
         $data = array (
             'id'    => $dishesh['d_id'],
-            'r_id'  => $dishesh['r_id'],
+            'c_id'  => $dishesh['c_id'],
             'qty'   =>1,
             'price' => $dishesh['price'],
             'name' => $dishesh['name'],

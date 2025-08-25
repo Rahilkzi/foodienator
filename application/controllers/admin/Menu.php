@@ -59,7 +59,7 @@ class Menu extends CI_Controller {
                     $formArray['name'] = $this->input->post('name');
                     $formArray['about'] = $this->input->post('about');
                     $formArray['price'] = $this->input->post('price');
-                    $formArray['r_id'] = $this->input->post('rname');
+                    $formArray['c_id'] = $this->input->post('rname');
         
                     $this->Menu_model->create($formArray);
         
@@ -82,7 +82,7 @@ class Menu extends CI_Controller {
                 $formArray['name'] = $this->input->post('name');
                 $formArray['about'] = $this->input->post('about');
                 $formArray['price'] = $this->input->post('price');
-                $formArray['r_id'] = $this->input->post('rname');
+                $formArray['c_id'] = $this->input->post('rname');
     
                 $this->Menu_model->create($formArray);
                 
@@ -157,7 +157,7 @@ class Menu extends CI_Controller {
                     $formArray['name'] = $this->input->post('name');
                     $formArray['about'] = $this->input->post('about');
                     $formArray['price'] = $this->input->post('price');
-                    $formArray['r_id'] = $this->input->post('rname');
+                    $formArray['c_id'] = $this->input->post('rname');
         
                     $this->Menu_model->update($id, $formArray);
 
@@ -191,7 +191,7 @@ class Menu extends CI_Controller {
                 $formArray['name'] = $this->input->post('name');
                 $formArray['about'] = $this->input->post('about');
                 $formArray['price'] = $this->input->post('price');
-                $formArray['r_id'] = $this->input->post('rname');
+                $formArray['c_id'] = $this->input->post('rname');
     
                 $this->Menu_model->update($id, $formArray);
     

@@ -13,8 +13,8 @@ class Category extends CI_Controller {
     }
 
     public function index() {
-        $this->load->model('Cat_model');
-        $cats = $this->Cat_model->getCategories();
+        $this->load->model('Category_model');
+        $cats = $this->Category_model->getCategory();
         $cats_data['cats'] = $cats;
         $this->load->view('admin/partials/header');
         $this->load->view('admin/category/list', $cats_data);
@@ -22,14 +22,14 @@ class Category extends CI_Controller {
     }
 
     public function create_category(){
-        $this->load->model('Cat_model');
+        $this->load->model('Category_model');
         $this->load->library('form_validation');
         $this->form_validation->set_rules('category','Category', 'trim|required');
 
         if($this->form_validation->run() == true) {
             
             $cat['c_name'] = $this->input->post('category');
-            $this->Cat_model->create_cat($cat);
+            $this->Category_model->create_cat($cat);
             
             $this->session->set_flashdata('cat_success', 'category added successfully');
             redirect(base_url().'admin/category/index');
@@ -42,10 +42,10 @@ class Category extends CI_Controller {
 
     public function edit($id) {
         
-        $this->load->model('Cat_model');
-        $category = $this->Cat_model->getCategory($id);
+        $this->load->model('Category_model');
+        $cat = $this->Category_model->getCat($id);
 
-        if(empty($category)) {
+        if(empty($cat)) {
             $this->session->set_flashdata('error', 'Category not found');
             redirect(base_url().'admin/category/index');
         }
@@ -55,14 +55,14 @@ class Category extends CI_Controller {
 
         if($this->form_validation->run() == true) {
 
-            $category['c_name'] = $this->input->post('category');
-            $this->Cat_model->update($id, $category);
+            $cat['c_name'] = $this->input->post('category');
+            $this->Category_model->update($id, $cat);
             
             $this->session->set_flashdata('cat_success', 'category added successfully');
             redirect(base_url().'admin/category/index');
 
         } else {
-            $data['category'] = $category;
+            $data['cat'] = $cat;
             $this->load->view('admin/partials/header');
             $this->load->view('admin/category/edit', $data);
             $this->load->view('admin/partials/footer');
@@ -71,15 +71,15 @@ class Category extends CI_Controller {
     }
 
     public function delete($id) {
-        $this->load->model('Cat_model');
-        $cat = $this->Cat_model->getCategory($id);
+        $this->load->model('Category_model');
+        $cat = $this->Category_model->getCat($id);
 
         if(empty($cat)) {
             $this->session->set_flashdata('error', 'Category not found');
             redirect(base_url().'admin/category/index');
         }
 
-        $cat = $this->Cat_model->delete($id);
+        $cat = $this->Category_model->delete($id);
 
         $this->session->set_flashdata('cat_success', 'Category deleted successfully');
         redirect(base_url().'admin/category/index');

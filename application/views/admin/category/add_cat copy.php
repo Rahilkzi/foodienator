@@ -1,16 +1,17 @@
 <div class="container shadow-container">
-    <h2 class="p-2 text-center">Edit Restaurant Category "<?php echo $category['c_name'];?>"</h2>
-    <form action="<?php echo base_url().'admin/category/edit/'.$category['c_id'];?>" class="container" method="POST" id="myForm">
+    <h2 class="p-2 text-center">Add Restaurant Category</h2>
+    <form action="<?php echo base_url().'admin/category/create_category';?>" class="container my-3" method="POST" id="myForm">
         <div class="form-group">
             <label for="category">Category</label>
-            <input type="text" class="form-control" id="category" placeholder="Enter Category" name="category" value="<?php echo set_value('category', $category['c_name']);?>">
+            <input type="text" id="category" class="form-control" placeholder="Enter Category" name="category">
             <?php echo form_error('category'); ?>
             <span></span>
         </div>
-        <button type="submit" class="btn btn-primary mr-2">Make Changes</button>
+        <button type="submit" class="btn btn-primary mr-2">Submit</button>
         <a class="btn btn-secondary" href="<?php echo base_url().'admin/category/index';?>">Back</a>
     </form>
 </div>
+
 <script>
     const form = document.getElementById('myForm');
     const category = document.getElementById('category');
@@ -42,10 +43,11 @@
     const validate = () => {
         const categoryVal = category.value.trim();
 
+        //username validation
         if (categoryVal === "") {
             setErrorMsg(category, 'category cannot be blank');
-        } else if (categoryVal.length <= 4 || categoryVal.length >= 16) {
-            setErrorMsg(category, 'category length should be between 5 and 15"');
+        } else if (categoryVal.length <= 3 || categoryVal.length >= 16) {
+            setErrorMsg(category, 'category length should be between 3 and 15"');
         } else {
             setSuccessMsg(category);
         }

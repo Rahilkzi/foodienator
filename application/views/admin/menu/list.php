@@ -83,7 +83,7 @@ input:checked + .slider:before {
                     <?php if(!empty($dishesh)) { ?>
                     <?php foreach($dishesh as $dish) {?>
                     <tr>
-                        <td><?php echo $dish['r_id']; ?></td>
+                        <td><?php echo $dish['c_id']; ?></td>
                         <td><?php echo $dish['name']; ?></td>
                         <td><?php echo $dish['about']; ?></td>
                         <td><?php echo "₹".$dish['price']; ?></td>
