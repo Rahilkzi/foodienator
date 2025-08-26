@@ -8,6 +8,7 @@ class Menu_model extends CI_Model {
     }
 
     public function getMenu() {
+        $this->db->where('status', 1); 
         $result = $this->db->get('dishesh')->result_array();
         return $result;
     }
