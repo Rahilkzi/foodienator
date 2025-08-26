@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 26, 2025 at 01:09 PM
+-- Generation Time: Aug 26, 2025 at 04:26 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -50,8 +50,8 @@ INSERT INTO `admin` (`admin_id`, `username`, `password`, `email`, `date`) VALUES
 
 CREATE TABLE `categories` (
   `c_id` int(11) NOT NULL,
-  `c_name` varchar(255) CHARACTER SET armscii8 COLLATE armscii8_general_ci NOT NULL,
-  `img` text CHARACTER SET armscii8 COLLATE armscii8_general_ci NOT NULL
+  `c_name` varchar(255) NOT NULL,
+  `img` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -59,8 +59,8 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`c_id`, `c_name`, `img`) VALUES
-(1, 'Pizza', 'h'),
-(0, 'Burger', '');
+(1, 'Pizza', 'Screenshot_2025-04-23_112105.png'),
+(2, 'Burger', 'Screenshot_2025-04-23_112046.png');
 
 -- --------------------------------------------------------
 
@@ -83,7 +83,7 @@ CREATE TABLE `dishesh` (
 --
 
 INSERT INTO `dishesh` (`d_id`, `c_id`, `name`, `about`, `price`, `img`, `status`) VALUES
-(1, 0, 'Grilled Cheese Sandwich', 'Grilled cheese sandwich or grilled cheese is a hot sandwich made with more varieties of cheese cooked on the grill long enough for the cheese to melt a little and the bread to get brown and a little crispy. Grill until lightly browned and flip over; conti', 6, 'igcsan.jpg', 1),
+(1, 1, 'Grilled Cheese Sandwich', 'Grilled cheese sandwich or grilled cheese is a hot sandwich made with more varieties of cheese cooked on the grill long enough for the cheese to melt a little and the bread to get brown and a little crispy. Grill until lightly browned and flip over; conti', 6, 'Screenshot_2025-05-27_000831.png', 1),
 (2, 1, 'Turkey Fajitas', 'Enjoy delicious Mexican food with this smoky BBQ turkey fajitas recipe from Giulia Restro to finish up turkey leftovers or just to make a tasty dinner! just give it a kick with picante sauce, peppers and onions, all wrapped up in a flour tortilla.', 9, 'turkey-fajitas.jpg', 1),
 (3, 3, 'Hot Dog', 'Whole cured, cooked sausage that is skinless or stuffed in a casing, that may be known as a frankfurter, frank, furter, wiener, red hot, vienna, bologna, garlic bologna, or knockwurst, and that may be served in a bun or roll', 4, 'hdoggg.jpg', 1),
 (4, 2, 'Ham Burger', 'Sandwich consisting of one or more cooked patties of ground meat, usually beef, placed inside a sliced bread roll or bun. The patty may be pan fried, grilled, smoked or flame broiled. The Epic Ham and Cheese Stuffed Bacon Burger is hands down the best', 4, 'hmbrger.jpg', 1),
@@ -197,6 +197,12 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`admin_id`);
 
 --
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`c_id`);
+
+--
 -- Indexes for table `dishesh`
 --
 ALTER TABLE `dishesh`
@@ -223,6 +229,12 @@ ALTER TABLE `user_orders`
 --
 ALTER TABLE `admin`
   MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `dishesh`
