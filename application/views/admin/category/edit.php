@@ -7,6 +7,20 @@
             <?php echo form_error('category'); ?>
             <span></span>
         </div>
+
+        <div class="col-md-12">
+                <div class="form-group has-danger">
+                    <label for="image">Image</label>
+                    <input type="file" name="image" id="image">
+                    <br>
+                    <?php echo (!empty($errorImageUpload)) ? $errorImageUpload : '';?>
+                    <?php if($category['img'] != '' && file_exists('./public/uploads/restaurant/thumb/'.$category['img'])) { ?>
+                    <img class="mt-1" src="<?php echo base_url().'public/uploads/restaurant/thumb/'.$category['img']; ?>">
+                    <?php } else {?>
+                    <img width="300" src="<?php echo base_url().'public/uploads/no-image.png'?>">
+                    <?php } ?>
+                </div>
+            </div>
         <button type="submit" class="btn btn-primary mr-2">Make Changes</button>
         <a class="btn btn-secondary" href="<?php echo base_url().'admin/category/index';?>">Back</a>
     </form>

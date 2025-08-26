@@ -26,9 +26,38 @@ class Category extends CI_Controller {
         $this->load->library('form_validation');
         $this->form_validation->set_rules('category','Category', 'trim|required');
 
+        $this->load->helper('common_helper');
+
+        $config['upload_path']          = './public/uploads/category/';
+        $config['allowed_types']        = 'gif|jpg|png|jpeg';
+
+        $this->load->library('upload', $config);
+
         if($this->form_validation->run() == true) {
-            
             $cat['c_name'] = $this->input->post('category');
+            
+            
+            // Handle image upload
+            if (!empty($_FILES['image']['name'])) {
+                if ($this->upload->do_upload('image')) {
+                    $data  = $this->upload->data();
+
+                    // $cat['img'] = $uploadData['file_name']; // save filename in DB
+                    resizeImage(
+                        $config['upload_path'].$data['file_name'],
+                        $config['upload_path'].'thumb/'.$data['file_name'],
+                        300,
+                        270
+                    );
+                    $cat['img'] = $data['file_name']; // save filename in DB
+                } else {
+                    // Upload failed
+                    $this->session->set_flashdata('cat_error', $this->upload->display_errors());
+                    redirect(base_url().'admin/category/add_cat');
+                    return;
+                }
+            }
+
             $this->Cat_model->create_cat($cat);
             
             $this->session->set_flashdata('cat_success', 'category added successfully');
@@ -40,35 +69,108 @@ class Category extends CI_Controller {
         }
     }
 
-    public function edit($id) {
+    // public function edit($id) {
         
+    //     $this->load->model('Cat_model');
+    //     $category = $this->Cat_model->getCategory($id);
+
+    //     if(empty($category)) {
+    //         $this->session->set_flashdata('error', 'Category not found');
+    //         redirect(base_url().'admin/category/index');
+    //     }
+
+    //     $this->load->library('form_validation');
+    //     $this->form_validation->set_rules('category','Category', 'trim|required');
+
+    //     if($this->form_validation->run() == true) {
+
+    //         $category['c_name'] = $this->input->post('category');
+    //         $this->Cat_model->update($id, $category);
+            
+    //         $this->session->set_flashdata('cat_success', 'category added successfully');
+    //         redirect(base_url().'admin/category/index');
+
+    //     } else {
+    //         $data['category'] = $category;
+    //         $this->load->view('admin/partials/header');
+    //         $this->load->view('admin/category/edit', $data);
+    //         $this->load->view('admin/partials/footer');
+    //     }
+
+    // }
+
+    public function edit($id) {
         $this->load->model('Cat_model');
         $category = $this->Cat_model->getCategory($id);
 
-        if(empty($category)) {
+        if (empty($category)) {
             $this->session->set_flashdata('error', 'Category not found');
             redirect(base_url().'admin/category/index');
         }
 
+        $this->load->helper('common_helper');
+
+        $config['upload_path']   = './public/uploads/category/';
+        $config['allowed_types'] = 'gif|jpg|png|jpeg';
+        //$config['encrypt_name'] = true;
+
+        $this->load->library('upload', $config);
         $this->load->library('form_validation');
         $this->form_validation->set_rules('category','Category', 'trim|required');
 
-        if($this->form_validation->run() == true) {
+        if ($this->form_validation->run() == true) {
+            $updateData['c_name'] = $this->input->post('category');
 
-            $category['c_name'] = $this->input->post('category');
-            $this->Cat_model->update($id, $category);
-            
-            $this->session->set_flashdata('cat_success', 'category added successfully');
+            // If a new image is uploaded
+            if (!empty($_FILES['image']['name'])) {
+                if ($this->upload->do_upload('image')) {
+                    $data = $this->upload->data();
+
+                    // Resize new image
+                    resizeImage(
+                        $config['upload_path'].$data['file_name'],
+                        $config['upload_path'].'thumb/'.$data['file_name'],
+                        300,
+                        270
+                    );
+
+                    $updateData['img'] = $data['file_name'];
+
+                    // Delete old image + thumbnail if exists
+                    if (!empty($category['img'])) {
+                        $oldImage = $config['upload_path'].$category['img'];
+                        $oldThumb = $config['upload_path'].'thumb/'.$category['img'];
+
+                        if (file_exists($oldImage)) {
+                            unlink($oldImage);
+                        }
+                        if (file_exists($oldThumb)) {
+                            unlink($oldThumb);
+                        }
+                    }
+                } else {
+                    $this->session->set_flashdata('cat_error', $this->upload->display_errors());
+                    redirect(base_url().'admin/category/edit/'.$id);
+                    return;
+                }
+            } else {
+                // no new image -> keep old one
+                $updateData['img'] = $category['img'];
+            }
+
+            // Save updates
+            $this->Cat_model->update($id, $updateData);
+
+            $this->session->set_flashdata('cat_success', 'Category updated successfully');
             redirect(base_url().'admin/category/index');
-
         } else {
             $data['category'] = $category;
             $this->load->view('admin/partials/header');
             $this->load->view('admin/category/edit', $data);
             $this->load->view('admin/partials/footer');
         }
-
     }
+
 
     public function delete($id) {
         $this->load->model('Cat_model');
