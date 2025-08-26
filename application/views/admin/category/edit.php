@@ -1,6 +1,6 @@
 <div class="container shadow-container">
     <h2 class="p-2 text-center">Edit Category "<?php echo $category['c_name'];?>"</h2>
-    <form action="<?php echo base_url().'admin/category/edit/'.$category['c_id'];?>" class="container" method="POST" id="myForm">
+    <form action="<?php echo base_url().'admin/category/edit/'.$category['c_id'];?>" class="container" method="POST" id="myForm" enctype="multipart/form-data">
         <div class="form-group">
             <label for="category">Category</label>
             <input type="text" class="form-control" id="category" placeholder="Enter Category" name="category" value="<?php echo set_value('category', $category['c_name']);?>">
@@ -13,12 +13,16 @@
                     <label for="image">Image</label>
                     <input type="file" name="image" id="image">
                     <br>
-                    <?php echo (!empty($errorImageUpload)) ? $errorImageUpload : '';?>
-                    <?php if($category['img'] != '' && file_exists('./public/uploads/restaurant/thumb/'.$category['img'])) { ?>
-                    <img class="mt-1" src="<?php echo base_url().'public/uploads/restaurant/thumb/'.$category['img']; ?>">
-                    <?php } else {?>
-                    <img width="300" src="<?php echo base_url().'public/uploads/no-image.png'?>">
-                    <?php } ?>
+                    <?php 
+                    $imagePath = './public/uploads/category/thumb/'.$category['img'];
+                    if (!empty($category['img']) && file_exists($imagePath)): ?>
+                        <img class="mt-1" src="<?php echo base_url($imagePath); ?>" width="300">
+                    <?php else: ?>
+                        <img class="mt-1" src="<?php echo base_url('public/uploads/no-image.png'); ?>" width="300">
+                    <?php endif; ?>
+                    <?php echo (!empty($errorImageUpload)) ? $errorImageUpload : '';?>      
+                    <span></span>
+
                 </div>
             </div>
         <button type="submit" class="btn btn-primary mr-2">Make Changes</button>
