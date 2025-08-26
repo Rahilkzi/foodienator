@@ -234,36 +234,36 @@ input[placeholder] {
   backface-visibility: visible;
 }
 
-/* Restaurant page section */
+/* Category page section */
 
-.res-card .card {
+.cat-card .card {
   flex-direction: row;
   align-items: center;
 }
-.res-card .card-title {
+.cat-card .card-title {
   font-weight: bold;
 }
-.res-card .card img {
+.cat-card .card img {
   width: 80%;
   height: 40vh;
   object-fit: cover;
 }
-.res-card .card {
+.cat-card .card {
   background-color: #f5f5f5;
 }
 @media only screen and (max-width: 768px) {
-  .res-card .card-body {
+  .cat-card .card-body {
     padding: 0.5em 1.2em;
   }
-  .res-card .card-body .card-text {
+  .cat-card .card-body .card-text {
     margin: 0;
   }
-  .res-card .card img {
+  .cat-card .card img {
     width: 50%;
   }
 }
 @media only screen and (max-width: 1200px) {
-  .res-card .card img {
+  .cat-card .card img {
     width: 40%;
   }
 }

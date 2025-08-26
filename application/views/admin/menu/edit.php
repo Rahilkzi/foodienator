@@ -4,8 +4,8 @@
         <h3 class="mb-3 text-center">Edit Dish "<?php echo $dish['name']; ?>"</h3>
         <div class="form-group">
             <label class="control-label">Select Category</label>
-            <select name="rname" id="resname"
-                class="form-control <?php echo (form_error('rname') != "") ? 'is-invalid' : '';?>">
+            <select name="cname" id="resname"
+                class="form-control <?php echo (form_error('cname') != "") ? 'is-invalid' : '';?>">
                 <option>--Select Category--</option>
                 <?php 
                 if (!empty($categories)) { 
@@ -20,7 +20,7 @@
                 ?>
             </select>
             <span></span>
-            <?php echo form_error('rname');?>
+            <?php echo form_error('cname');?>
         </div>
         <div class="row">
             <div class="col-md-6">
@@ -114,8 +114,8 @@ const validate = () => {
     const aboutVal = about.value.trim();
     const imageVal = image.value.trim();
 
-    if (resnameVal === "--Select Restaurant--") {
-        setErrorMsg(resname, 'select restaurant name');
+    if (resnameVal === "--Select Category--") {
+        setErrorMsg(resname, 'select category name');
     } else {
         setSuccessMsg(resname);
     }

@@ -3,10 +3,10 @@
         class="form-container mx-auto  shadow-container" style="width:80%" enctype="multipart/form-data">
         <h3 class="mb-3 text-center">Add Food Items</h3>
         <div class="form-group">
-            <label class="control-label">Select Categories</label>
-            <select name="rname" id="resname"
-                class="form-control <?php echo (form_error('rname') != "") ? 'is-invalid' : '';?>">
-                <option>--Select Categories--</option>
+            <label class="control-label">Select Category</label>
+            <select name="cname" id="resname"
+                class="form-control <?php echo (form_error('cname') != "") ? 'is-invalid' : '';?>">
+                <option>--Select Category--</option>
                 <?php 
                 if (!empty($categories)) { 
                     foreach($categories as $category) {
@@ -19,7 +19,7 @@
                 }
                 ?>
             </select>
-            <?php echo form_error('rname');?>
+            <?php echo form_error('cname');?>
             <span></span>
         </div>
         <div class="row">
@@ -111,8 +111,8 @@
         const aboutVal = about.value.trim();
         const imageVal = image.value.trim();
 
-        if (resnameVal === "--Select Restaurant--") {
-            setErrorMsg(resname, 'select restaurant name');
+        if (resnameVal === "--Select Category--") {
+            setErrorMsg(resname, 'select category name');
         } else {
             setSuccessMsg(resname);
         }

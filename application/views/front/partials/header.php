@@ -33,9 +33,7 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="<?php echo base_url().'category/index';?>">Categories</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="<?php echo base_url().'restaurant/index';?>">Restaurants</a>
-                    </li>
+        
                     <?php $user = $this->session->userdata('user'); 
                     if(empty($user)) {
                     ?>

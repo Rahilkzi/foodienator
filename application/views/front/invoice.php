@@ -22,9 +22,8 @@
                     <h3 style="color:purple"><b>Chocolate Drop Cafe</b></h3>
                 </div>
                 <div class="col-6">
-                    <p class="lead font-weight-bold mb-0"><?php echo $res['name'] ?></p>
-                    <p class="mb-0"><?php echo $res['email'] ?></p>
-                    <p><?php echo $res['address'] ?></p>
+                    <p class="lead font-weight-bold mb-0"><?php echo $cat['name'] ?></p>
+
                 </div>
                 <div class="col-6">
                     <h3>INVOICE:</h3>
@@ -46,7 +45,7 @@
                     <table class="table responsive">
                         <thead class="bg-dark text-white">
                             <tr>
-                                <th>Restaurant</th>
+                                <th>Category</th>
                                 <th>Dish</th>
                                 <th>Quantity</th>
                                 <th>Price</th>
@@ -54,7 +53,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><?php echo $res['name']; ?></td>
+                                <td><?php echo $cat['c_name']; ?></td>
                                 <td><?php echo $order['d_name']; ?></td>
                                 <td><?php echo $order['quantity']; ?></td>
                                 <td><?php echo '₹'.$dish['price']; ?></td>

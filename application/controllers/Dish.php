@@ -14,10 +14,10 @@ class Dish extends CI_Controller {
         $dishesh = $this->Menu_model->getDishesh($id);
 
         $this->load->model('Cat_model');
-        $res = $this->Cat_model->getCategory($id);
+        $cat = $this->Cat_model->getCategory($id);
 
         $data['dishesh'] = $dishesh;
-        $data['res'] = $res;
+        $data['cat'] = $cat;
         $this->load->view('front/partials/header');
         $this->load->view('front/dish', $data);
         $this->load->view('front/partials/footer');

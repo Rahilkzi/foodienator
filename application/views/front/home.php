@@ -10,8 +10,8 @@
             <div class="carousel-caption text-left">
                 <h1 class="display-2">Hungry?!</h1>
                 <h3>Good, we are here to serve you</h3>
-                <a href="<?php echo base_url().'restaurant/index'?>" class="btn btn-outline-light btn-lg">Order Now</a>
-                <a href="<?php echo base_url().'restaurant/index'?>" class="btn btn-primary btn-lg">View Menu</a>
+                <a href="<?php echo base_url().'category/index'?>" class="btn btn-outline-light btn-lg">Order Now</a>
+                <a href="<?php echo base_url().'category/index'?>" class="btn btn-primary btn-lg">View Menu</a>
             </div>
         </div>
         <div class="carousel-item">
@@ -19,8 +19,8 @@
             <div class="carousel-caption text-right">
                 <h1 class="display-2">Hungry?!</h1>
                 <h3>Good, we are here to serve you</h3>
-                <a href="<?php echo base_url().'restaurant/index'?>" class="btn btn-outline-light btn-lg">Order Now</a>
-                <a href="<?php echo base_url().'restaurant/index'?>" class="btn btn-primary btn-lg">View Menu</a>
+                <a href="<?php echo base_url().'category/index'?>" class="btn btn-outline-light btn-lg">Order Now</a>
+                <a href="<?php echo base_url().'category/index'?>" class="btn btn-primary btn-lg">View Menu</a>
             </div>
         </div>
         <div class="carousel-item">
@@ -28,8 +28,8 @@
             <div class="carousel-caption text-right">
                 <h1 class="display-2">Hungry?!</h1>
                 <h3>Good, we are here to serve you</h3>
-                <a href="<?php echo base_url().'restaurant/index'?>" class="btn btn-outline-light btn-lg">Order Now</a>
-                <a href="<?php echo base_url().'restaurant/index'?>" class="btn btn-primary btn-lg">View Menu</a>
+                <a href="<?php echo base_url().'category/index'?>" class="btn btn-outline-light btn-lg">Order Now</a>
+                <a href="<?php echo base_url().'category/index'?>" class="btn btn-primary btn-lg">View Menu</a>
             </div>
         </div>
     </div>
@@ -50,13 +50,13 @@
     <div class="row text-center padding">
         <div class="col-xs-12 col-sm-6 col-md-4">
             <i class="fas fa-utensils"></i>
-            <h3>Choose A Restaurant</h3>
-            <p>First thing you can do is choose from our restautant partners easily!</p>
+            <h3>Choose A Category</h3>
+            <p>First thing you can do is choose from our category partners easily!</p>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-4">
             <i class="fas fa-bullseye"></i>
             <h3>Choose A Tasty Dish</h3>
-            <p>We've got you covered with menus from over various delivery restaurants online!</p>
+            <p>We've got you covered with menus from over various delivery categories online!</p>
         </div>
         <div class="col-sm-12 col-md-4">
         <i class="fas fa-clipboard-check"></i>

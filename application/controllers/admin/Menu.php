@@ -39,7 +39,7 @@ class Menu extends CI_Controller {
         $this->form_validation->set_rules('name', 'Dish name','trim|required');
         $this->form_validation->set_rules('about', 'About','trim|required');
         $this->form_validation->set_rules('price', 'Price','trim|required');
-        $this->form_validation->set_rules('rname', 'Restaurant name','trim|required');
+        $this->form_validation->set_rules('cname', 'Category name','trim|required');
 
 
         if($this->form_validation->run() == true) {
@@ -59,7 +59,7 @@ class Menu extends CI_Controller {
                     $formArray['name'] = $this->input->post('name');
                     $formArray['about'] = $this->input->post('about');
                     $formArray['price'] = $this->input->post('price');
-                    $formArray['c_id'] = $this->input->post('rname');
+                    $formArray['c_id'] = $this->input->post('cname');
         
                     $this->Menu_model->create($formArray);
         
@@ -78,11 +78,11 @@ class Menu extends CI_Controller {
 
                 
             } else {
-                //if no image is selcted we will add res data without image
+                //if no image is selcted we will add cat data without image
                 $formArray['name'] = $this->input->post('name');
                 $formArray['about'] = $this->input->post('about');
                 $formArray['price'] = $this->input->post('price');
-                $formArray['c_id'] = $this->input->post('rname');
+                $formArray['c_id'] = $this->input->post('cname');
     
                 $this->Menu_model->create($formArray);
                 
@@ -141,7 +141,7 @@ class Menu extends CI_Controller {
         $this->form_validation->set_rules('name', 'Dish name','trim|required');
         $this->form_validation->set_rules('about', 'About','trim|required');
         $this->form_validation->set_rules('price', 'Price','trim|required');
-        $this->form_validation->set_rules('rname', 'Restaurant name','trim|required');
+        $this->form_validation->set_rules('cname', 'Category name','trim|required');
 
         if($this->form_validation->run() == true) {
 
@@ -157,7 +157,7 @@ class Menu extends CI_Controller {
                     $formArray['name'] = $this->input->post('name');
                     $formArray['about'] = $this->input->post('about');
                     $formArray['price'] = $this->input->post('price');
-                    $formArray['c_id'] = $this->input->post('rname');
+                    $formArray['c_id'] = $this->input->post('cname');
         
                     $this->Menu_model->update($id, $formArray);
 
@@ -187,11 +187,11 @@ class Menu extends CI_Controller {
 
                 
             } else {
-                //if no image is selcted we will add res data without image
+                //if no image is selcted we will add cat data without image
                 $formArray['name'] = $this->input->post('name');
                 $formArray['about'] = $this->input->post('about');
                 $formArray['price'] = $this->input->post('price');
-                $formArray['c_id'] = $this->input->post('rname');
+                $formArray['c_id'] = $this->input->post('cname');
     
                 $this->Menu_model->update($id, $formArray);
     

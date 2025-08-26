@@ -26,7 +26,7 @@ class Checkout extends CI_Controller {
        $user = $this->User_model->getUser($u_id);
 
         if($this->cart->total_items() <= 0) {
-            redirect(base_url().'restaurant');
+            redirect(base_url().'category');
         }
             $submit = $this->input->post('placeholder');
             $this->form_validation->set_error_delimiters('<p class="invalid-feedback">','</p>');

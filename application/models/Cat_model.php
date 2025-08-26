@@ -33,7 +33,7 @@ class Cat_model extends CI_Model {
         return $query->num_rows();
     }
 
-    public function getResInfo() {
+    public function getCatInfo() {
         $this->db->select('*');
         $this->db->from('categories');
         // $this->db->join('res_category','categories.c_id = res_category.c_id');

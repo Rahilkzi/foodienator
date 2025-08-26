@@ -11,7 +11,7 @@ class Orders extends CI_Controller {
                 redirect(base_url().'login/');
             }
         $this->load->model('Order_model');
-        $this->load->model('Store_model');
+        $this->load->model('Cat_model');
         $this->load->model('Menu_model');
     }
     public function index() {
@@ -43,10 +43,10 @@ class Orders extends CI_Controller {
         $order = $this->Order_model->getOrderByUser($id);
         $data['order'] = $order;
         $u_id = $order['u_id'];
-        $r_id = $order['r_id'];
+        $c_id = $order['c_id'];
         $d_id = $order['d_id'];
-        $res = $this->Store_model->getStore($r_id);
-        $data['res'] = $res;   
+        $cat = $this->Store_model->getCategory($c_id);
+        $data['cat'] = $cat;   
         $dish = $this->Menu_model->getSingleDish($d_id);
         $data['dish'] = $dish;
     

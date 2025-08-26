@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 25, 2025 at 06:59 PM
+-- Generation Time: Aug 26, 2025 at 01:09 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -105,7 +105,8 @@ INSERT INTO `dishesh` (`d_id`, `c_id`, `name`, `about`, `price`, `img`, `status`
 (21, 5, 'PoBoy', 'A po\' boy is a traditional sandwich from Louisiana. It almost always consists of meat, which is usually roast beef or fried seafood, often shrimp, crawfish, fish, oysters or crab. The meat is served on New Orleans French bread, known for its crisp crust a', 5, 'poboy.jpg', 1),
 (22, 7, 'Reuben Sandwich', 'Reuben Sandwich is composed of corned beef, swiss chees, sauerkraut and russian dressing, grilled between slices of rye bread. It is associated with kosher-style delicatessens as it combines meat and cheese.', 8, 'reubensandw.jpg', 1),
 (23, 1, 'tes', 'dxg', 200, 'Screenshot_2025-04-23_1132421.png', 1),
-(24, 1, 'veg pizza', 'jsehmfv', 98765, 'Screenshot_2025-05-27_000248.png', 1);
+(24, 1, 'veg pizza', 'jsehmfv', 98765, 'Screenshot_2025-05-27_000248.png', 0),
+(25, 1, 'rukj', 'dgk', 98, 'Screenshot_2025-04-23_112105.png', 1);
 
 -- --------------------------------------------------------
 
@@ -163,14 +164,14 @@ CREATE TABLE `user_orders` (
   `status` varchar(255) DEFAULT NULL,
   `date` datetime NOT NULL DEFAULT current_timestamp(),
   `success-date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `r_id` int(11) NOT NULL
+  `c_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user_orders`
 --
 
-INSERT INTO `user_orders` (`o_id`, `u_id`, `d_id`, `d_name`, `quantity`, `price`, `status`, `date`, `success-date`, `r_id`) VALUES
+INSERT INTO `user_orders` (`o_id`, `u_id`, `d_id`, `d_name`, `quantity`, `price`, `status`, `date`, `success-date`, `c_id`) VALUES
 (18, 18, 9, 'Maltesers Tiramisu', 1, 4, 'closed', '2021-05-16 18:01:05', '2021-05-16 16:02:09', 3),
 (20, 19, 10, 'Arancini', 1, 12, NULL, '2021-05-17 12:01:04', '2021-05-17 06:16:04', 6),
 (21, 21, 18, 'Chimichanga', 1, 9, 'in process', '2021-05-17 13:38:29', '2021-05-17 12:21:29', 2),
@@ -179,10 +180,11 @@ INSERT INTO `user_orders` (`o_id`, `u_id`, `d_id`, `d_name`, `quantity`, `price`
 (24, 24, 20, 'Chop Suey', 1, 8, 'closed', '2021-05-17 14:30:02', '2021-05-17 14:32:49', 2),
 (25, 31, 7, 'Spaghetti Carbonara', 1, 9, NULL, '2021-05-17 14:38:44', '2021-05-17 08:53:44', 1),
 (27, 32, 21, 'PoBoy', 2, 10, 'in process', '2021-05-17 15:55:55', '2021-05-17 13:57:23', 5),
-(28, 34, 8, 'Toasted Ravioli', 4, 44, 'rejected', '2021-05-17 16:22:34', '2021-05-17 14:31:36', 2),
 (29, 34, 21, 'PoBoy', 2, 10, 'closed', '2021-05-17 16:22:34', '2021-05-17 14:32:07', 5),
 (30, 34, 11, 'Currywurst', 7, 49, 'closed', '2021-05-17 16:22:34', '2021-05-17 14:32:42', 6),
-(32, 34, 22, 'Reuben Sandwich', 3, 24, 'closed', '2021-05-17 16:31:02', '2021-05-17 14:32:38', 7);
+(32, 34, 22, 'Reuben Sandwich', 3, 24, 'closed', '2021-05-17 16:31:02', '2021-05-17 14:32:38', 7),
+(33, 34, 2, 'Turkey Fajitas', 2, 18, NULL, '2025-08-26 12:27:56', '2025-08-26 06:57:56', 0),
+(34, 34, 6, 'Pasta allArrabbiata', 1, 9, NULL, '2025-08-26 12:27:56', '2025-08-26 06:57:56', 0);
 
 --
 -- Indexes for dumped tables
@@ -226,7 +228,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `dishesh`
 --
 ALTER TABLE `dishesh`
-  MODIFY `d_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `d_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -238,7 +240,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `user_orders`
 --
 ALTER TABLE `user_orders`
-  MODIFY `o_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `o_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

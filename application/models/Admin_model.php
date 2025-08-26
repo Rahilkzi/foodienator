@@ -19,12 +19,12 @@ class Admin_model extends CI_Model {
         return $result;
     }
 
-    public function getResReport() {
-        $this->db->group_by('u.r_id');
-        $this->db->select('u.r_id, name, price, success-date');
+    public function getCatReport() {
+        $this->db->group_by('u.c_id');
+        $this->db->select('u.c_id, c_name, price, success-date');
         $this->db->select_sum('price');
         $this->db->from('user_orders as u');
-        $this->db->join('restaurants as r', 'r.r_id = u.r_id');
+        $this->db->join('categories as c', 'c.c_id = u.c_id');
         $result = $this->db->get()->result();
         return $result;
     }
@@ -39,13 +39,13 @@ class Admin_model extends CI_Model {
     }
 
     public function mostOrderdDishes() {
-        $sql = 'SELECT u.r_id, r.name, u.price, u.d_name, 
+        $sql = 'SELECT u.c_id, c.name, u.price, u.d_name, 
         MAX(u.quantity) AS quantity, 
         SUM(price) AS total
         FROM user_orders AS u
-        INNER JOIN restaurants as r
-        ON u.r_id = r.r_id
-        GROUP BY u.r_id';
+        INNER JOIN categories as c
+        ON u.c_id = c.c_id
+        GROUP BY u.c_id';
 
         $query = $this->db->query($sql);
         return $query->result();

@@ -13,24 +13,22 @@ class Home extends CI_Controller {
             redirect(base_url().'admin/login/index');
         }
         $this->load->model('Admin_model');
-        $this->load->model('Store_model');
+        $this->load->model('Cat_model');
         $this->load->model('Menu_model');
         $this->load->model('User_model');
         $this->load->model('Order_model');
-        $this->load->model('Category_model');
     }
     public function index() {
-        $data['countStore'] = $this->Store_model->countStore();
+        $data['countCategory'] = $this->Cat_model->countCategory();
         $data['countDish'] = $this->Menu_model->countDish();
         $data['countUser'] = $this->User_model->countUser();
         $data['countOrders'] = $this->Order_model->countOrders();
-        $data['countCategory'] = $this->Category_model->countCategory();
         $data['countPendingOrders'] = $this->Order_model->countPendingOrders();
         $data['countDeliveredOrders'] = $this->Order_model->countDeliveredOrders();
         $data['countRejectedOrders'] = $this->Order_model->countRejectedOrders();
 
-        $resReport = $this->Admin_model->getResReport();
-        $data['resReport'] = $resReport;
+        $catReport = $this->Admin_model->getCatReport();
+        $data['catReport'] = $catReport;
 
         $dishReport = $this->Admin_model->dishReport();
         $data['dishReport'] = $dishReport;
@@ -39,9 +37,9 @@ class Home extends CI_Controller {
         $this->load->view('admin/partials/footer');
     }
 
-    public function resReport() {
-        $resReport = $this->Admin_model->getResReport();
-        $data['resReport'] = $resReport;
+    public function catReport() {
+        $catReport = $this->Admin_model->getCatReport();
+        $data['catReport'] = $catReport;
         $this->load->view('admin/reports/res_report', $data);
     }
     
@@ -56,8 +54,8 @@ class Home extends CI_Controller {
     }
 
     public function ordersReport() {
-        $resReport = $this->Admin_model->getResReport();
-        $data['resReport'] = $resReport;
+        $catReport = $this->Admin_model->getcatReport();
+        $data['catReport'] = $catReport;
 
         $this->load->view('admin/partials/header');
         $this->load->view('admin/reports/res_report', $data);
@@ -110,9 +108,9 @@ class Home extends CI_Controller {
         $this->table->set_template($template);
 
         if($id == 1) {
-            $resReport = $this->Admin_model->getResReport();
-            $this->table->set_heading('Id', 'Restaurants', 'Total-sales');
-            foreach ($resReport as $sf):
+            $catReport = $this->Admin_model->getCatReport();
+            $this->table->set_heading('Id', 'Categories', 'Total-sales');
+            foreach ($catReport as $sf):
                 $this->table->add_row($sf->r_id, $sf->name, $sf->price);
             endforeach; 
 

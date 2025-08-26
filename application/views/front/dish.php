@@ -1,15 +1,15 @@
 <div class="container p-4">
     <div class="row welcome text-center welcome">
         <div class="col-12">
-            <h1 class="display-4">Menu of <?php echo $res['c_name']; ?></h1>
+            <h1 class="display-4">Menu of <?php echo $cat['c_name']; ?></h1>
         </div>
     </div>
-    <div class="container res-card">
+    <div class="container cat-card">
         <div class="card">
-            <?php $img = $res['img'];?>
-            <img src="<?php echo base_url().'public/uploads/restaurant/thumb/'.$img; ?>" class="card-img-top" />
+            <?php $img = $cat['img'];?>
+            <img src="<?php echo base_url().'public/uploads/category/thumb/'.$img; ?>" class="card-img-top" />
             <div class="card-body">
-                <h4 class="card-title font-weight-bold text-primary"><?php echo $res['c_name']; ?></h4>
+                <h4 class="card-title font-weight-bold text-primary"><?php echo $cat['c_name']; ?></h4>
                 <p class="card-text">
                 A feast of gorgeousness awaits you with super-seasonal dishes created with love by our wonderful chefs.
                 </p>
