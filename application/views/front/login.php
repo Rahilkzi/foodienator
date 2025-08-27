@@ -28,12 +28,14 @@
         <h4 class="pb-4 border-bottom text-center">Login To Your Account</h4>
         <form action="<?php echo base_url().'login/authenticate' ;?>" name="loginform" id="loginform" method="POST">
             <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" class="form-control bg-light" name="username" id="username"
-                    placeholder="Username">
+                <label for="Phone">Phone</label>
+                <input type="number" class="form-control bg-light" name="phone" id="phone"
+                    placeholder="Phone Number">
                 <span></span>
             </div>
-            <?php echo form_error('username'); ?>
+            <?php echo form_error('phone'); ?>
+
+
             <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" class="form-control bg-light" name="password" id="password"
@@ -48,8 +50,9 @@
         </form>
     </div>
     <script>
+
     const form = document.getElementById('loginform');
-    const username = document.getElementById('username');
+    const phone = document.getElementById('phone');
     const password = document.getElementById('password');
 
     form.addEventListener('submit', (event) => {
@@ -63,7 +66,7 @@
         }
     }
 
-    const successMsg = (usernameVal) => {
+    const successMsg = (phoneVal) => {
         let formCon = document.getElementsByClassName('form-control');
         var count = formCon.length - 1; 
         for (var i = 0; i < formCon.length; i++) {
@@ -77,13 +80,13 @@
     }
 
     const validate = () => {
-        const usernameVal = username.value.trim();
+        const phoneVal = phone.value.trim();
         const passwordVal = password.value.trim();
 
-        if (usernameVal === "") {
-            setErrorMsg(username, 'username can be blank');
+        if (phoneVal === "") {
+            setErrorMsg(phone, 'phone can be blank');
         } else {
-            setSuccessMsg(username);
+            setSuccessMsg(phone);
         }
 
         if (passwordVal === "") {

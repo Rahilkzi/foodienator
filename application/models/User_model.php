@@ -13,6 +13,13 @@ class User_model extends CI_Model {
         return $mainuser;
     }
 
+    public function getByPhone($phone) {
+        $this->db->where('phone', $phone);
+        $userphone = $this->db->get('users')->row_array();
+        return $userphone;
+    }
+
+
     public function getUsers() {
         $result = $this->db->get('users')->result_array();
         return $result;
