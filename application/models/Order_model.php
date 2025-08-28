@@ -70,7 +70,7 @@ class Order_model extends CI_Model {
     }
 
     public function getOrderByUser($id) {
-        $this->db->select('o_id, r_id, d_id, users.u_id, d_name, quantity, price, status, f_name, l_name, user_orders.date, users.email, users.phone,  success-date, username, address');
+        $this->db->select('o_id, c_id, d_id, users.u_id, d_name, quantity, price, status, f_name, l_name, user_orders.date, users.email, users.phone,  success-date, username, address');
         $this->db->from('user_orders');
         $this->db->join('users', 'users.u_id = user_orders.u_id');
         $this->db->where('o_id', $id);

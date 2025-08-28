@@ -54,6 +54,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class CI_Controller {
 
 	public $controller;
+	public $upload;
 
 	
 	public $benchmark;
@@ -79,6 +80,7 @@ class CI_Controller {
 	public User_model $User_model;
 	public Order_model $Order_model;
     public Menu_model $Menu_model;
+	public Admin_model $Admin_model;
 
 
     public My_Cart $cart; // not Cart
