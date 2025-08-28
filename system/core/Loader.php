@@ -48,8 +48,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @author		EllisLab Dev Team
  * @link		https://codeigniter.com/user_guide/libraries/loader.html
  */
-class CI_Loader {
 
+
+class CI_Loader {
+	public $benchmark;
+    public $hooks;
+    public $config;
+    public $log;
+    public $utf8;
+    public $uri;
+    public $exceptions;
+    public $router;
+    public $output;
+    public $security;
+    public $input;
+    public $lang;
+    public $db;
+    public $load;
+    public $session;
+    public $form_validation;
+    public $table;
+    public $Menu_model;
+    public $User_model;
+	public $Cat_model;
+	public $Admin_model;
+
+	/** @var CI_Cart|My_Cart */
+    public $cart;
+
+
+	
+
+	
 	// All these are set automatically. Don't mess with them.
 	/**
 	 * Nesting level of the output buffering mechanism

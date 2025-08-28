@@ -49,7 +49,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @author		EllisLab Dev Team
  * @link		https://codeigniter.com/user_guide/general/controllers.html
  */
+
+
 class CI_Controller {
+
+	public $benchmark;
+    public $hooks;
+    public $config;
+    public $log;
+    public $utf8;
+    public $uri;
+    public $exceptions;
+    public $router;
+    public $output;
+    public $security;
+    public $input;
+    public $lang;
+    public $db;
+
+	
+	public CI_Session $session;
+    public CI_Form_validation $form_validation;
+    public CI_Table $table;
+	
+	public Cat_model $Cat_model;
+	public User_model $User_model;
+    public Menu_model $Menu_model;
+
+
+    public My_Cart $cart; // not Cart
+
+
 
 	/**
 	 * Reference to the CI singleton
