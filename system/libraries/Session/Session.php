@@ -311,10 +311,14 @@ class CI_Session {
 		$this->_config = $params;
 
 		// Security is king
-		ini_set('session.use_trans_sid', 0);
+		if (PHP_VERSION_ID < 80000) {
+			ini_set('session.use_trans_sid', 0);
+			ini_set('session.use_only_cookies', 1);
+		}
 		ini_set('session.use_strict_mode', 1);
 		ini_set('session.use_cookies', 1);
-		ini_set('session.use_only_cookies', 1);
+
+		
 
 		$this->_configure_sid_length();
 	}
@@ -372,7 +376,9 @@ class CI_Session {
 			{
 				// Add as many more characters as necessary to reach at least 160 bits
 				$sid_length += (int) ceil((160 % $bits) / $bits_per_character);
-				ini_set('session.sid_length', $sid_length);
+				// if (PHP_VERSION_ID < 80400) {
+   				@ini_set('session.sid_length', $sid_length);
+				// }
 			}
 		}
 
