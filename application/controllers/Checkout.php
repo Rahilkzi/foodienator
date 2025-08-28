@@ -59,7 +59,6 @@ class Checkout extends CI_Controller {
         foreach($cartItems as $item) {
             $orderData[$i]['u_id'] = $u_Id;
             $orderData[$i]['d_id'] = $item['id'];
-            $orderData[$i]['r_id'] = $item['r_id'];
             $orderData[$i]['d_name'] = $item['name'];
             $orderData[$i]['quantity'] = $item['qty'];
             $orderData[$i]['price'] = $item['subtotal'];
