@@ -53,6 +53,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class CI_Controller {
 
+	public $controller;
+
+	
 	public $benchmark;
     public $hooks;
     public $config;
@@ -74,6 +77,7 @@ class CI_Controller {
 	
 	public Cat_model $Cat_model;
 	public User_model $User_model;
+	public Order_model $Order_model;
     public Menu_model $Menu_model;
 
 

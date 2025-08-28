@@ -2,7 +2,10 @@
 defined('BASEPATH') OR exit ('No direct script access allowed');
 
 class Checkout extends CI_Controller {
+    
 
+
+ 
     function __construct() {
         parent::__construct();
 
@@ -14,7 +17,7 @@ class Checkout extends CI_Controller {
         
         $this->load->helper('date');
         $this->load->library('form_validation');
-        $this->load->library('cart');
+        $this->load->library('My_Cart', [], 'cart');
         $this->load->model('Order_model');
         $this->load->model('User_model');
         $this->controller = 'checkout';

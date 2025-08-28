@@ -51,6 +51,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 class CI_Loader {
+
+	public $controller;
+
 	public $benchmark;
     public $hooks;
     public $config;
@@ -72,6 +75,7 @@ class CI_Loader {
     public $User_model;
 	public $Cat_model;
 	public $Admin_model;
+	public $Order_model;
 
 	/** @var CI_Cart|My_Cart */
     public $cart;
