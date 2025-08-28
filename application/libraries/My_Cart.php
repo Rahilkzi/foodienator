@@ -4,7 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 require_once(BASEPATH.'libraries/Cart.php');
 
 class My_Cart extends CI_Cart {
-    // public My_Cart $cart; // not Cart
 
     protected $cart_table = 'user_cart';
 

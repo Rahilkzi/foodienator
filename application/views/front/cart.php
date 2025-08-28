@@ -5,6 +5,7 @@ function updateCartItem(obj, rowid) {
             qty: obj.value
         },
         function(resp) {
+            console.log(resp);
             if (resp == 'ok') {
                 location.reload();
             } else {

@@ -8,7 +8,7 @@ class Dish extends CI_Controller {
     function __construct(){
         parent::__construct();
         //Load cart libraray
-        $this->load->library('cart');
+        $this->load->library('My_Cart', [], 'cart');
     }
 
     public function list($id) {

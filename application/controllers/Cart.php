@@ -10,7 +10,7 @@ class Cart extends CI_Controller {
             redirect('login');
         }
         // Load custom cart
-        $this->load->library('my_cart', [], 'cart');
+        $this->load->library('My_Cart', [], 'cart');
         $this->cart->load_cart_from_db();  // restore on login
     }
 
