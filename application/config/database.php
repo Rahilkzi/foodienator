@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'foodorderigniter',
+	'hostname' => 'db',
+	'username' => 'ci_user',
+    'password' => 'ci_pass',
+    'database' => 'codeigniter_db',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
