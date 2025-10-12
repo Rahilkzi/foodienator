@@ -4,6 +4,11 @@ defined('BASEPATH') OR exit ('No direct script access allowed');
 
 
 class Home extends CI_Controller {
+    // private $pdf; 
+    public $pdf;
+    // public $mypdf;
+
+    
 
     public function __construct(){
         parent::__construct();
@@ -63,7 +68,10 @@ class Home extends CI_Controller {
     }
     public function generate_pdf($id) {
         //load pdf library
-        $this->load->library('Pdf');
+        $this->load->library('pdf');
+        // $this->load->library('pdf', NULL, 'mypdf');
+        // $this->mypdf->AddPage();
+
         
         $pdf = new Pdf(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
         // set document information
@@ -111,7 +119,7 @@ class Home extends CI_Controller {
             $catReport = $this->Admin_model->getCatReport();
             $this->table->set_heading('Id', 'Categories', 'Total-sales');
             foreach ($catReport as $sf):
-                $this->table->add_row($sf->r_id, $sf->name, $sf->price);
+                $this->table->add_row($sf->c_id, $sf->c_name, $sf->price);
             endforeach; 
 
         } else if($id == 2) {

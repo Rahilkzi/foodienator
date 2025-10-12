@@ -49,11 +49,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/libraries/loader.html
  */
 
-
+#[\AllowDynamicProperties]
 class CI_Loader {
+
 
 	public $controller;
 	public $upload;
+	
 
 	public $benchmark;
     public $hooks;

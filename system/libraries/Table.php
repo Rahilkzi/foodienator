@@ -49,6 +49,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/libraries/table.html
  */
 class CI_Table {
+	protected $temp;
+
 
 	/**
 	 * Data for table rows
