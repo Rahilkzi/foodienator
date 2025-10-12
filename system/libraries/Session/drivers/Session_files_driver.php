@@ -167,6 +167,7 @@ class CI_Session_files_driver extends CI_Session_driver implements SessionHandle
 	 */
 	public function read($session_id): string|false
 	{
+		
 		// This might seem weird, but PHP 5.6 introduces session_reset(),
 		// which re-reads session data
 		if ($this->_file_handle === NULL)
