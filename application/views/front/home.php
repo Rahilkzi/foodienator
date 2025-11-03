@@ -6,7 +6,7 @@
     </ul>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="<?php echo base_url().'public/front/img/bfbrg.jpg';?>" alt="FriesBrgrImg">
+            <img src="<?php echo base_url().'public/front/img/bfbrg.jpg';?>" class="d-block w-100"  alt="FriesBrgrImg" loading="lazy">
             <div class="carousel-caption text-left">
                 <h1 class="display-2">Hungry?!</h1>
                 <h3>Good, we are here to serve you</h3>
@@ -15,8 +15,8 @@
             </div>
         </div>
         <div class="carousel-item">
-            <img src="<?php echo base_url().'public/front/img/spaghetti-bg.jpg';?>" alt="Spaghetti">
-            <div class="carousel-caption text-right">
+            <img src="<?php echo base_url().'public/front/img/spaghetti-bg.jpg';?>" class="d-block w-100" alt="Spaghetti">
+            <div class="carousel-caption text-left">
                 <h1 class="display-2">Hungry?!</h1>
                 <h3>Good, we are here to serve you</h3>
                 <a href="<?php echo base_url().'category/index'?>" class="btn btn-outline-light btn-lg">Order Now</a>
@@ -24,8 +24,8 @@
             </div>
         </div>
         <div class="carousel-item">
-            <img src="<?php echo base_url().'public/front/img/snwbg.jpg';?>" alt="corn">
-            <div class="carousel-caption text-right">
+            <img src="<?php echo base_url().'public/front/img/snwbg.jpg';?>" class="d-block w-100" alt="corn">
+            <div class="carousel-caption text-left">
                 <h1 class="display-2">Hungry?!</h1>
                 <h3>Good, we are here to serve you</h3>
                 <a href="<?php echo base_url().'category/index'?>" class="btn btn-outline-light btn-lg">Order Now</a>
@@ -42,7 +42,8 @@
         <hr>
         <div class="col-12">
             <p class="lead">The easiest way to your food. Food Ordering System provides fresh delivery
-                with in the 30 minutes and provide free food if order is not on time. So don't wait and start ordering right now!</p>
+                with in the 30 minutes and provide free food if order is not on time. So don't wait and start ordering
+                right now!</p>
         </div>
     </div>
 </div>
@@ -59,7 +60,7 @@
             <p>We've got you covered with menus from over various delivery categories online!</p>
         </div>
         <div class="col-sm-12 col-md-4">
-        <i class="fas fa-clipboard-check"></i>
+            <i class="fas fa-clipboard-check"></i>
             <h3>Pick Up or Delivery</h3>
             <p>After all, the food gets delivered or you can pick it up as per your choices!</p>
         </div>
@@ -74,12 +75,12 @@
         <hr>
     </div>
 </div>
-<div class="container-fluid padding dish-card">
+<div class="container">
     <div class="row">
         <?php if(!empty($dishesh)) { ?>
         <?php foreach($dishesh as $dish) { ?>
         <div class="col-md-6 col-lg-4 d-flex align-items-stretch">
-            <div class="card mb-4 shadow-sm">
+            <div class="card dish-card">
                 <?php $image = $dish['img'];?>
                 <img class="card-img-top" src="<?php echo base_url().'public/uploads/dishesh/thumb/'.$image; ?>">
                 <div class="card-body">
@@ -127,7 +128,7 @@
     <div class="alert <?= $this->session->flashdata('msg_class'); ?>">
         <?= $this->session->flashdata('msg'); ?>
     </div>
-<?php endif; ?>
+    <?php endif; ?>
 
 
     <form name="contact-form" action="<?php echo base_url().'home/sendMail'; ?>" id="myForm" method="POST">
@@ -135,43 +136,43 @@
             <div class="col-md-6">
                 <div class="mb-2">
                     <label class="mb-0" for="name">Fullname*</label>
-                    <input type="text" id="name" name="name" class="form-control" 
-                           value="<?php echo set_value('name'); ?>" required>
+                    <input type="text" id="name" name="name" class="form-control"
+                        value="<?php echo set_value('name'); ?>" required>
                     <span></span>
                 </div>
             </div>
             <div class="col-md-6">
                 <div>
                     <label class="mb-0" for="email">Email*</label>
-                    <input type="email" id="email" name="email" class="form-control" 
-                           value="<?php echo set_value('email'); ?>" required>
+                    <input type="email" id="email" name="email" class="form-control"
+                        value="<?php echo set_value('email'); ?>" required>
                     <span></span>
                 </div>
             </div>
         </div>
-        
+
         <div class="row">
             <div class="col-md-12">
                 <div class="mb-2">
                     <label class="mb-0" for="subject">Subject</label>
-                    <input type="text" id="subject" name="subject" class="form-control" 
-                           value="<?php echo set_value('subject'); ?>">
+                    <input type="text" id="subject" name="subject" class="form-control"
+                        value="<?php echo set_value('subject'); ?>">
                     <span></span>
                 </div>
             </div>
         </div>
-        
+
         <div class="row">
             <div class="col-md-12">
                 <div class="mb-2">
                     <label class="mb-0" for="message">Your Message*</label>
-                    <textarea id="message" name="message" rows="2"
-                              class="form-control" required><?php echo set_value('message'); ?></textarea>
+                    <textarea id="message" name="message" rows="2" class="form-control"
+                        required><?php echo set_value('message'); ?></textarea>
                     <span></span>
                 </div>
             </div>
         </div>
-        
+
         <button class="btn btn-info" type="submit">Submit</button>
     </form>
 </section>

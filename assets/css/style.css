@@ -7,6 +7,227 @@ body {
   font-family: "Poppins", sans-serif;
   color: #222;
 }
+
+/* Dish Page Specific Styles */
+.dish-page-header, .cat-page-header {
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  margin-bottom: 2rem;
+}
+
+.dish-page-header h1, .cat-page-header  h1 {
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.dish-page-header p, .cat-page-header  p {
+  color: #7f8c8d;
+  font-size: 1.1rem;
+}
+
+
+
+.category-banner {
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2.5rem;
+  transition: transform 0.3s ease;
+}
+
+.category-banner:hover {
+  transform: translateY(-5px);
+}
+
+.category-banner img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.category-info {
+  padding: 2rem;
+  background: white;
+}
+
+.category-info h2 {
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.category-info p {
+  color: #7f8c8d;
+  line-height: 1.6;
+}
+
+.dish-card {
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  height: 100%;
+}
+
+.dish-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.dish-card .card-img-top {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.dish-card:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+.dish-card .card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.dish-card .card-title {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.dish-card .price {
+  font-weight: 700;
+  color: #e74c3c;
+  font-size: 1.3rem;
+}
+
+.dish-card .card-text {
+  color: #7f8c8d;
+  flex-grow: 1;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.dish-card .btn {
+  align-self: flex-start;
+  border-radius: 50px;
+  padding: 0.6rem 1.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.dish-card .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+.no-dishes {
+  padding: 3rem 1rem;
+  text-align: center;
+  background: #f8f9fa;
+  border-radius: 15px;
+  margin: 2rem 0;
+}
+
+.no-dishes h2 {
+  color: #7f8c8d;
+  margin-bottom: 1rem;
+}
+
+.no-dishes p {
+  color: #95a5a6;
+  margin-bottom: 1.5rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .dish-page-header {
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+  }
+  
+  .dish-page-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .category-banner {
+    margin-bottom: 1.5rem;
+  }
+  
+  .category-info {
+    padding: 1.5rem;
+  }
+  
+  .category-info h2 {
+    font-size: 1.5rem;
+  }
+  
+  .dish-card {
+    margin-bottom: 1.5rem;
+  }
+  
+  .dish-card .card-body {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .dish-page-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .category-info {
+    padding: 1rem;
+  }
+  
+  .category-info h2 {
+    font-size: 1.3rem;
+  }
+  
+  .dish-card .card-body {
+    padding: 1rem;
+  }
+  
+  .dish-card .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Animation for card loading */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dish-card {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+/* Stagger animation for multiple cards */
+.dish-card:nth-child(1) { animation-delay: 0.1s; }
+.dish-card:nth-child(2) { animation-delay: 0.2s; }
+.dish-card:nth-child(3) { animation-delay: 0.3s; }
+.dish-card:nth-child(4) { animation-delay: 0.4s; }
+.dish-card:nth-child(5) { animation-delay: 0.5s; }
+.dish-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* Keep your existing navbar, carousel, and other styles below */
 .navbar {
   padding: 0.8rem;
 }
@@ -28,29 +249,64 @@ body {
 .dropdown-menu {
   margin-top: 0;
 }
+
+
+
+
 .carousel-inner {
   background: black;
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px; /* Added rounded corners */
 }
+
 .carousel-inner img {
   width: 100%;
   height: 85vh;
   opacity: 0.4;
+  object-fit: cover; /* Ensure proper image fitting */
+  transition: transform 0.5s ease; /* Smooth zoom effect */
 }
+
+/* Add zoom effect on hover */
+.carousel:hover .carousel-inner img {
+  transform: scale(1.05);
+}
+
+
 .carousel-caption {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  bottom: auto;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  text-align: center;
 }
 
 .carousel-caption h1 {
   font-size: 500%;
   text-transform: uppercase;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+  margin-bottom: 1rem;
 }
 
 .carousel-caption h3 {
   font-size: 200%;
   font-weight: 500;
   padding-bottom: 1rem;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+}
+
+.carousel-caption .btn {
+  font-size: 120%;
+  padding: 12px 30px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
 }
 
 .btn-primary {
@@ -103,14 +359,80 @@ body {
   font-size: 4em;
   margin: 1rem;
 }
-.dish-card .card-img-top {
+.cat-img-top {
   width: 100%;
   height: 40vh;
   object-fit: cover;
 }
+
+.dish-card .card-img-top
+{
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;           
+  height: auto;                
+}
+
 .dish-card .card-body {
   background-color: #f5f5f5;
 }
+
+
+/* Category page section */
+
+.cat-card .card {
+  flex-direction: row;
+  align-items: center;
+}
+.cat-card .card-title {
+  font-weight: bold;
+}
+.cat-card .card img {
+  width: 80%;
+  height: 40vh;
+  object-fit: cover;
+}
+.cat-card .card {
+  background-color: #f5f5f5;
+}
+
+.cat-card .card-text {
+    color: #7f8c8d;
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+@media only screen and (max-width: 768px) {
+  .cat-card .card-body {
+    padding: 0.5em 1.2em;
+  }
+  .cat-card .card-body .card-text {
+    margin: 0;
+    color: #7f8c8d;
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+  }
+  .cat-card .card img {
+    width: 50%;
+    color: #7f8c8d;
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .cat-card .card img {
+    width: 40%;
+    color: #7f8c8d;
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+  }
+}
+
+/* Social Media Icons */
 .social a {
   font-size: 4.5em;
   padding: 3rem;
@@ -234,58 +556,9 @@ input[placeholder] {
   backface-visibility: visible;
 }
 
-/* Category page section */
 
-.cat-card .card {
-  flex-direction: row;
-  align-items: center;
-}
-.cat-card .card-title {
-  font-weight: bold;
-}
-.cat-card .card img {
-  width: 80%;
-  height: 40vh;
-  object-fit: cover;
-}
-.cat-card .card {
-  background-color: #f5f5f5;
-}
-@media only screen and (max-width: 768px) {
-  .cat-card .card-body {
-    padding: 0.5em 1.2em;
-  }
-  .cat-card .card-body .card-text {
-    margin: 0;
-  }
-  .cat-card .card img {
-    width: 50%;
-  }
-}
-@media only screen and (max-width: 1200px) {
-  .cat-card .card img {
-    width: 40%;
-  }
-}
 
 /*--- Bootstrap Padding Fix --*/
 [class*="col-"] {
   padding: 1rem;
 }
-
-/*
-Extra small (xs) devices (portrait phones, less than 576px)
-No media query since this is the default in Bootstrap
-
-Small (sm) devices (landscape phones, 576px and up)
-@media (min-width: 576px) { ... }
-
-Medium (md) devices (tablets, 768px and up)
-@media (min-width: 768px) { ... }
-
-Large (lg) devices (desktops, 992px and up)
-@media (min-width: 992px) { ... }
-
-Extra (xl) large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) { ... }
-*/
