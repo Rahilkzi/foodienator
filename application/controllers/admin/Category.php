@@ -15,9 +15,8 @@ class Category extends CI_Controller {
     public function index() {
         $this->load->model('Cat_model');
         $cats = $this->Cat_model->getCategories();
-        $cats_data['cats'] = $cats;
         $this->load->view('admin/partials/header');
-        $this->load->view('admin/category/list', $cats_data);
+        $this->load->view('admin/category/list', ['cats' => $cats]);
         $this->load->view('admin/partials/footer');
     }
 
@@ -62,6 +61,7 @@ class Category extends CI_Controller {
             
             $this->session->set_flashdata('cat_success', 'category added successfully');
             redirect(base_url().'admin/category/index');
+            return;
         } else {
             $this->load->view('admin/partials/header');
             $this->load->view('admin/category/add_cat');
@@ -69,35 +69,7 @@ class Category extends CI_Controller {
         }
     }
 
-    // public function edit($id) {
-        
-    //     $this->load->model('Cat_model');
-    //     $category = $this->Cat_model->getCategory($id);
-
-    //     if(empty($category)) {
-    //         $this->session->set_flashdata('error', 'Category not found');
-    //         redirect(base_url().'admin/category/index');
-    //     }
-
-    //     $this->load->library('form_validation');
-    //     $this->form_validation->set_rules('category','Category', 'trim|required');
-
-    //     if($this->form_validation->run() == true) {
-
-    //         $category['c_name'] = $this->input->post('category');
-    //         $this->Cat_model->update($id, $category);
-            
-    //         $this->session->set_flashdata('cat_success', 'category added successfully');
-    //         redirect(base_url().'admin/category/index');
-
-    //     } else {
-    //         $data['category'] = $category;
-    //         $this->load->view('admin/partials/header');
-    //         $this->load->view('admin/category/edit', $data);
-    //         $this->load->view('admin/partials/footer');
-    //     }
-
-    // }
+    
 
     public function edit($id) {
         $this->load->model('Cat_model');
@@ -181,9 +153,15 @@ class Category extends CI_Controller {
             redirect(base_url().'admin/category/index');
         }
 
-        $cat = $this->Cat_model->delete($id);
+        $this->Cat_model->delete($id);   
+    
+        $path = './public/uploads/category/';
+        @unlink($path.$cat['img']);
+        @unlink($path.'thumb/'.$cat['img']);
 
-        $this->session->set_flashdata('cat_success', 'Category deleted successfully');
+        
+
+        $this->session->set_flashdata('cat_success', 'Category deleted successfully'. $path.$cat['img']);
         redirect(base_url().'admin/category/index');
     }
 }

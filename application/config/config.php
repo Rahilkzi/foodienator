@@ -24,7 +24,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 // $config['base_url'] = 'http://localhost:8000/';
-$config['base_url'] = 'http://192.168.0.100:8000/';
+// $config['base_url'] = 'http://172.22.99.182:8000/';
+$config['base_url'] = 'http://172.22.99.182:8000/';
 // $config['base_url'] = 'http://localhost/foodienator/';
 
 /*
